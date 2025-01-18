@@ -1,56 +1,72 @@
-/////////////////////MOVE ZEROS TO THE END///////////////////////
-
-
+/////////////LEFT ROTATE ANY ARRAY BY D PLACES///////////////
 
 #include <iostream>
 using namespace std;
 
-int zero(int arr[] , int n){
+// Rotate Function
+int rotate(int arr[], int n , int d){
 
-int count = 0;
-
-for(int i=0; i <n ; i++){
-
-if(arr[i]!=0){
-
-arr[count] = arr[i];
-count++;
-}
-
-}
+//arr = array
+//n = length of array
+//d = number of places to be rotated
 
 
-for(int i=count ; i<n ; i++ ){
+int temp[d];  
 
-    arr[i]= 0;
-}
 
-return count;
+for(int i=0; i<d ; i++ )
+{
+
+temp[i]= arr[i];
+
 }
 
 
-//////////////////////////////////////////////////////////
+for(int i=d ; i<n ; i++)
+{
+
+arr[i-d] = arr[i];
+
+}
+
+
+for(int i=0 ; i<d ; i++)
+{
+
+    arr[n-d+i]= temp[i];
+}
+
+
+
+return 0;
+}
+
+
+
 int main(){
 
-int array[] = {1,2,0,3,0,0,4,5};
+int array[] = {1,2,3,4,5,6,7,8};
+int n =8;
+int d = 3;
 
-int n = 8;
-
-cout << "BEFORE MOVING ZEROS TO THE END" <<endl;
+cout << "BEFORE ROTATION" <<endl;
 
 for(int i=0 ; i<n ; i++){
 
-    cout<< array[i]<<endl;
+    cout<< array[i]<< ", ";
 }
 
+///////////////////////////////////
+rotate(array,n,d);/////////////Function used on array
+////////////////////////////////////
 
-zero(array,n); //Using remDups1 Function
 
+cout<<endl;
+cout << "After ROTATION" <<endl;
 
-cout << "AFTER MOVING ZEROS TO THE END"<<endl;
 for(int i=0 ; i<n ; i++){
 
-    cout<< array[i]<<endl;
+    cout<< array[i]<< ", ";
 }
 
 
