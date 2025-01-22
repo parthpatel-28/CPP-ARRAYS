@@ -1,4 +1,4 @@
-//Given an array arr[], the task is to find the elements of a contiguous subarray of numbers that has the largest sum.
+//In the given Array find the maximum numbers of consecutive ones in the array 
 
 #include <iostream>
 using namespace std;
